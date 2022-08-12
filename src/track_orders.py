@@ -41,7 +41,14 @@ class TrackOrders:
         return all_foods
 
     def get_never_ordered_per_customer(self, customer):
-        pass
+        all_foods = set(sorted(self.get_all_foods()))
+        all_orders_from_customer = self.get_all_orders_from_customer(customer)
+
+        for food in all_orders_from_customer:
+            if food in all_foods:
+                all_foods.remove(food)
+
+        return all_foods
 
     def get_days_never_visited_per_customer(self, customer):
         pass
