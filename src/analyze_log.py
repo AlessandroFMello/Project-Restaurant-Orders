@@ -56,5 +56,12 @@ def get_maria_data(data):
                     most_consumed_food[1] = v
     return most_consumed_food[0]
 
+
+def get_arnaldo_data(data):
+    for key, value in data.items():
+        if key == 'arnaldo':
+            return value['foods']['hamburguer']
+
+
 def analyze_log(path_to_file):
     raise NotImplementedError
