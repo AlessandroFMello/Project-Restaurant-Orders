@@ -40,5 +40,11 @@ def data_creator(path):
 
     return [data_dict, sorted(foods), sorted(days)]
 
+
+def file_writer(data):
+    with open('data/mkt_campaign.txt', 'a') as file:
+        file.write(f'{data}\n')
+
+
 def analyze_log(path_to_file):
     raise NotImplementedError
