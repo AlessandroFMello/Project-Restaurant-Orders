@@ -14,5 +14,31 @@ def csv_reader(path):
     except FileNotFoundError:
         raise FileNotFoundError(f"Arquivo inexistente: '{path}'")
 
+
+def data_creator(path):
+    data_array = csv_reader(path)
+    data_dict = dict()
+    foods = set()
+    days = set()
+
+    for element in data_array:
+        if element[0] not in data_dict:
+            data_dict[element[0]] = {
+                'foods': {element[1]: 1},
+                'days': {element[2]: True}
+            }
+        else:
+            if element[1] not in data_dict[element[0]]['foods']:
+                data_dict[element[0]]['foods'][element[1]] = 1
+            else:
+                data_dict[element[0]]['foods'][element[1]] += 1
+                foods.add(element[1])
+                days.add(element[2])
+
+            if element[2] not in data_dict[element[0]]['days']:
+                data_dict[element[0]]['days'][element[2]] = True
+
+    return [data_dict, sorted(foods), sorted(days)]
+
 def analyze_log(path_to_file):
     raise NotImplementedError
