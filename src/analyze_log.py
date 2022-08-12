@@ -63,5 +63,19 @@ def get_arnaldo_data(data):
             return value['foods']['hamburguer']
 
 
+def get_joao_data(data):
+    ans = list()
+    for key, value in data[0].items():
+        if key == 'joao':
+            for k, v in value['foods'].items():
+                data[1].remove(k)
+                ans.append(set(data[1]))
+
+            for k, v in value['days'].items():
+                data[2].remove(k)
+                ans.append(set(data[2]))
+    return ans
+
+
 def analyze_log(path_to_file):
     raise NotImplementedError
