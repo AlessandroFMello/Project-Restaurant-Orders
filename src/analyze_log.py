@@ -46,5 +46,15 @@ def file_writer(data):
         file.write(f'{data}\n')
 
 
+def get_maria_data(data):
+    most_consumed_food = ['', 0]
+    for key, value in data.items():
+        if key == 'maria':
+            for k, v in value['foods'].items():
+                if v > most_consumed_food[1]:
+                    most_consumed_food[0] = k
+                    most_consumed_food[1] = v
+    return most_consumed_food[0]
+
 def analyze_log(path_to_file):
     raise NotImplementedError
