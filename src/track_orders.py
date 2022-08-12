@@ -22,7 +22,17 @@ class TrackOrders:
         return all_orders_from_customer
 
     def get_most_ordered_dish_per_customer(self, customer):
-        pass
+        all_orders_from_customer = self.get_all_orders_from_customer(customer)
+
+        quantity = 0
+        most_ordered = ''
+        for food in all_orders_from_customer:
+            if all_orders_from_customer[food] > quantity:
+                quantity = all_orders_from_customer[food]
+                most_ordered = food
+
+        return most_ordered
+
 
     def get_never_ordered_per_customer(self, customer):
         pass
