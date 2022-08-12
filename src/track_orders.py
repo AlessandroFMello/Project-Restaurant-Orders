@@ -50,6 +50,14 @@ class TrackOrders:
 
         return all_foods
 
+    def get_all_days(self):
+        all_days = set()
+        for order in self.orders:
+            if order[2] not in all_days:
+                all_days.add(order[2])
+
+        return all_days
+
     def get_days_never_visited_per_customer(self, customer):
         pass
 
