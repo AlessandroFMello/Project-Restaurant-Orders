@@ -78,4 +78,16 @@ def get_joao_data(data):
 
 
 def analyze_log(path_to_file):
-    raise NotImplementedError
+    ans = [None for _ in range(4)]
+    data_dict = data_creator(path_to_file)
+
+    maria = get_maria_data(data_dict[0])
+    ans[0] = maria
+    arnaldo = get_arnaldo_data(data_dict[0])
+    ans[1] = arnaldo
+    joao = get_joao_data(data_dict)
+    ans[2] = joao[0]
+    ans[3] = joao[1]
+
+    for answer in ans:
+        file_writer(answer)
