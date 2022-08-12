@@ -1,4 +1,7 @@
 class TrackOrders:
+    def __init__(self):
+        self.orders = []
+
     # aqui deve expor a quantidade de estoque
     def __len__(self):
         pass
