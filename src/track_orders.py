@@ -33,6 +33,12 @@ class TrackOrders:
 
         return most_ordered
 
+    def get_all_foods(self):
+        all_foods = set()
+        for order in self.orders:
+            all_foods.add(order[1])
+
+        return all_foods
 
     def get_never_ordered_per_customer(self, customer):
         pass
