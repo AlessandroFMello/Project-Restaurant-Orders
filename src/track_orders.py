@@ -76,6 +76,16 @@ class TrackOrders:
 
         return all_days
 
+    def get_all_days_quantity(self):
+        all_days = dict()
+        for order in self.orders:
+            if order[2] not in all_days:
+                all_days[order[2]] = 1
+            else:
+                all_days[order[2]] += 1
+
+        return all_days
+
     def get_busiest_day(self):
         pass
 
