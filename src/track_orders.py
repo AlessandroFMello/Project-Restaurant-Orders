@@ -58,6 +58,15 @@ class TrackOrders:
 
         return all_days
 
+    def get_all_days_from_customer(self, customer):
+        all_days_from_customer = dict()
+        for order in self.orders:
+            if order[0] == customer:
+                if order[1] not in all_days_from_customer:
+                    all_days_from_customer[order[2]] = True
+
+        return all_days_from_customer
+
     def get_days_never_visited_per_customer(self, customer):
         pass
 
