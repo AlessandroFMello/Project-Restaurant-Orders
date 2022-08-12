@@ -87,7 +87,16 @@ class TrackOrders:
         return all_days
 
     def get_busiest_day(self):
-        pass
+        all_days_with_quantity = self.get_all_days_quantity()
+
+        most_visited_day = ''
+        most_visited_times = 0
+        for day, quantity in all_days_with_quantity.items():
+            if quantity > most_visited_times:
+                most_visited_times = quantity
+                most_visited_day = day
+
+        return most_visited_day
 
     def get_least_busy_day(self):
         pass
